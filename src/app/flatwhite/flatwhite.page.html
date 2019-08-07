@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>  
+    <ion-title><ion-icon name="arrow-round-back" (click)="back()"></ion-icon>
+      Flat White Cappuccino</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ 
+  <div class="first" *ngIf="choose">
+   <br/>
+   <ion-grid>
+    <img src="assets/icon/coffee5.jpg" style=width:100%;>
+    </ion-grid>
+    <br/>
+    <ion-label><h1>Extras</h1></ion-label><br/>
+    <ion-item>
+        <ion-checkbox [(ngModel)]="creamz" slot="start" color="warning" (click)="cream()"></ion-checkbox>
+      <ion-label value="Whipped Cream">Whipped Cream  </ion-label> 
+      <ion-label > +R3.00</ion-label>
+    </ion-item>
+
+    <ion-item >
+        <ion-checkbox [(ngModel)]="hazelnuts" slot="start" color="warning" (click)="hazelnut()"></ion-checkbox>
+      <ion-label value="hazelnut">Hazelnut syrup </ion-label>
+      <ion-label > +R4.00</ion-label>
+    </ion-item>
+
+    <ion-item>
+        <ion-checkbox [(ngModel)]="pourings" slot="start" color="warning" (click)="pouring()"></ion-checkbox>
+      <ion-label value="Pouring_Cream">Pouring Cream </ion-label> 
+      <ion-label > +R2.00</ion-label>
+    </ion-item>
+    <br/>
+   
+   <b> <ion-label>Total Price:R</ion-label> 
+    <ion-label>{{flatwhite}}.00</ion-label></b> 
+    <br/>
+    <ion-button expand="block" color="medium" (click) = "submit()">Order</ion-button>
+  
+  </div>
+
+  <div class="order" style="text-align: center" *ngIf="reciept">
+      <h1>Your order is:</h1>
+
+      <ion-label>Flat White Cappuccino</ion-label><br/>
+      <h4>Extras</h4>
+    {{r}}<br/>
+    {{z}}<br/>
+    {{x}} <br/>
+  
+    <h4>Total Price:R
+    <ion-label>{{flatwhite}}.00</ion-label></h4><br/>
+    <ion-button expand="block" color="medium" (click)="print()">Print</ion-button>
+  </div>
+    
+</ion-content>
